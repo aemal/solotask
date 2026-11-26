@@ -1,0 +1,120 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Lay the foundations",
+        "description": "Create a stable, reusable foundation for the next release.",
+        "status": "done",
+        "priority": "high",
+        "complexity": 3,
+        "dependencies": [],
+        "details": "Initialize the repository and application shell.",
+        "testStrategy": "Build successfully and verify navigation.",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize project",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Set up application shell",
+            "status": "done"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Build the project dashboard",
+        "description": "Bring the work together in one clear, focused view.",
+        "status": "in-progress",
+        "priority": "high",
+        "complexity": 7,
+        "dependencies": [
+          1
+        ],
+        "metadata": {
+          "owner": "Example team",
+          "milestone": "v1"
+        },
+        "details": "Show task status, priority, dependency and completion information.",
+        "testStrategy": "Check empty, loading and populated states.",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create summary cards",
+            "status": "done",
+            "priority": "medium"
+          },
+          {
+            "id": 2,
+            "title": "Build task board",
+            "status": "in-progress",
+            "priority": "high"
+          },
+          {
+            "id": 3,
+            "title": "Add responsive layouts",
+            "status": "pending",
+            "dependencies": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Review keyboard accessibility",
+        "description": "Make every task and detail available using a keyboard.",
+        "status": "review",
+        "priority": "medium",
+        "complexity": 4,
+        "dependencies": [
+          1
+        ],
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Test drawer focus handling",
+            "status": "done"
+          },
+          {
+            "id": 2,
+            "title": "Check filter labels",
+            "status": "done"
+          },
+          {
+            "id": 3,
+            "title": "Verify reduced motion",
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Prepare the release",
+        "description": "Document the installation and test the complete workflow.",
+        "status": "pending",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3
+        ],
+        "complexity": 5,
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Explore status editing",
+        "description": "Consider safe write support in a future version.",
+        "status": "deferred",
+        "priority": "low",
+        "dependencies": [
+          4
+        ],
+        "subtasks": []
+      }
+    ]
+  }
+}

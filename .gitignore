@@ -1,0 +1,13 @@
+node_modules/
+.next/
+*.tsbuildinfo
+.env*
+.DS_Store
+
+.task-master-ui/
+
+.vibeboard/task-backups/
+*.edit.lock
+.vibeboard/vision-demo/callbacks/
+
+.vibeboard/vision-demo/feedback/

@@ -1,0 +1,6 @@
+import { githubJson } from "@/lib/project-skills";
+import { uiStacks } from "@/lib/skill-catalog";
+import { errorResponse, InputError } from "@/lib/prd/security";
+const repos:Record<string,string>={shadcn:'shadcn-ui/ui',tailwind:'tailwindlabs/tailwindcss',mui:'mui/material-ui',chakra:'chakra-ui/chakra-ui',mantine:'mantinedev/mantine',antd:'ant-design/ant-design',daisyui:'saadeghi/daisyui',bootstrap:'twbs/bootstrap',heroui:'heroui-inc/heroui',radix:'radix-ui/primitives',bulma:'jgthms/bulma','css-modules':'css-modules/css-modules'};
+const cache=new Map<string,{at:number;value:unknown}>();
+export async function GET(request:Request){try{const id=new URL(request.url).searchParams.get('stack')||'';if(!uiStacks.some(s=>s.id===id))throw new InputError('Choose a UI stack.');const prior=cache.get(id);if(prior&&Date.now()-prior.at<900000)return Response.json(prior.value);const repo=await githubJson(`repos/${repos[id]}`);const value={repo:repos[id],url:repo.html_url,stars:repo.stargazers_count,forks:repo.forks_count,language:repo.language,license:repo.license?.spdx_id||'See repository',updatedAt:repo.pushed_at,archived:repo.archived,fetchedAt:new Date().toISOString()};cache.set(id,{at:Date.now(),value});return Response.json(value);}catch(e){return errorResponse(e);}}

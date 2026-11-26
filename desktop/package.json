@@ -1,0 +1,14 @@
+{
+  "name": "vibeboard-feedback-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local VibeBoard feedback capture companion",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test *.test.cjs && node --import tsx --test *.test.ts"
+  },
+  "devDependencies": {
+    "electron": "^45.0.0"
+  }
+}
